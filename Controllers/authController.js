@@ -41,7 +41,7 @@ exports.login = asyncErrorHandler(async (req, res, next) => {
   //Check if user exists with given email
   const user = await User.findOne({ email }).select("+password");
 
-  //Check if the user isists & password matches
+  //Check if the user exists & password matches
   if (
     !user ||
     !(await await user.comparePasswordInDb(password, user.password))
