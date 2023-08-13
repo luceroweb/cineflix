@@ -90,7 +90,6 @@ exports.deleteMovie = asyncErrorHandler(async (req, res, next) => {
 
 exports.getMovieStats = asyncErrorHandler(async (req, res, next) => {
   const stats = await Movie.aggregate([
-    { $match: { ratings: { $gte: 4.5 } } },
     {
       $group: {
         _id: "$releaseYear",
@@ -103,7 +102,6 @@ exports.getMovieStats = asyncErrorHandler(async (req, res, next) => {
       },
     },
     { $sort: { minPrice: 1 } },
-    // { $match: { maxPrice: { $gte: 60 } } },
   ]);
 
   res.status(200).json({
