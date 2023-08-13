@@ -14,13 +14,13 @@ router.route("/movies-by-genre/:genre").get(moviesController.getMovieByGenre);
 
 router
   .route("/")
-  .get(authController.protect, moviesController.getAllMovies)
-  .post(moviesController.createMovie);
+  .get(moviesController.getAllMovies)
+  .post(authController.protect, moviesController.createMovie);
 
 router
   .route("/:id")
-  .get(authController.protect, moviesController.getMovie)
-  .patch(moviesController.updateMovie)
+  .get(moviesController.getMovie)
+  .patch(authController.protect, moviesController.updateMovie)
   .delete(
     authController.protect,
     authController.restrict("admin"),
