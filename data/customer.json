@@ -1,0 +1,31 @@
+[ 
+    {
+		"name": "John",
+		"gender": "Male",
+		"age": 28,
+		"IsMarried": false,
+		"address": {
+			"city": "London",
+			"country": "UK"
+			},
+		"order": [
+				{"productId": 12345, "name": "iPhone 10"},
+				{"productId": 32345, "name": "Laptop"}
+			]
+	},
+
+	{
+		"name": "Mark",
+		"gender": "Male",
+		"age": 35,
+		"IsMarried": true,
+		"address": {
+			"city": "New York",
+			"country": "USA"
+			},
+		"order": [
+				{"productId": 65345, "name": "LG Smart TV"},
+				{"productId": 37345, "name": "MI Speaker"}
+			]
+    }
+]  
