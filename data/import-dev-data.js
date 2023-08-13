@@ -6,7 +6,7 @@ const Movie = require("./../Models/movieModel");
 dotenv.config({ path: "./config.env" });
 
 mongoose
-  .connect(process.env.CONN_STR, {
+  .connect(process.env.MONGO_CONN_STR, {
     useNewUrlParser: true,
   })
   .then((conn) => {

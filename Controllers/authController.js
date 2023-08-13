@@ -7,8 +7,8 @@ const sendEmail = require("./../Utils/email");
 const crypto = require("crypto");
 
 const signToken = (id) => {
-  return jwt.sign({ id }, process.env.SECRET_STR, {
-    expiresIn: process.env.LOGIN_EXPIRES,
+  return jwt.sign({ id }, process.env.JWT_SECRET_STR, {
+    expiresIn: process.env.CINEFLIX_LOGIN_EXPIRES,
   });
 };
 
@@ -73,7 +73,7 @@ exports.protect = asyncErrorHandler(async (req, res, next) => {
   //2. validate the token
   const decodedToken = await util.promisify(jwt.verify)(
     token,
-    process.env.SECRET_STR
+    process.env.JWT_SECRET_STR
   );
 
   //3. Check if the user exists

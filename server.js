@@ -16,7 +16,7 @@ process.on("uncaughtException", (err) => {
 const app = require("./app");
 
 mongoose
-  .connect(process.env.CONN_STR, {
+  .connect(process.env.MONGO_CONN_STR, {
     useNewUrlParser: true,
   })
   .then((conn) => {
@@ -24,7 +24,7 @@ mongoose
   });
 
 //CREATE A SERVER
-const port = process.env.PORT || 3000;
+const port = process.env.NODE_PORT || 3000;
 
 server = app.listen(port, () => {
   console.log("Server has started...");
